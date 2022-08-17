@@ -172,24 +172,6 @@ function inicializePlayer() {
     }
     return player
 }
-// Menu Information
-const menu = {
-    screenStartX: 134,
-    screenStartY: 0,
-    cropX: 174, // Using in sprite cropX and canvasSizeInX
-    cropY: 152, // Using in sprite cropY and canvasSizeInY
-    x: (canvas.width / 2) - 174 / 2, // 73
-    y: 50,
-    draw() {
-        ctx.drawImage(
-            sprites,
-            this.screenStartX, this.screenStartY,
-            this.cropX, this.cropY,
-            this.x, this.y,
-            this.cropX, this.cropY,
-        )
-    }
-}
 
 // Pipes Information
 function inicializePipe() {
@@ -208,7 +190,7 @@ function inicializePipe() {
         draw() {
             this.pairs.forEach(pair => {
                 const randomY = pair.y
-                const spacingBettweenPipes = 100
+                const spacingBettweenPipes = 70
                 
                 // Pipe Sky
                 const skyX = pair.x
@@ -238,7 +220,7 @@ function inicializePipe() {
             if (passedOneHundredFrames) {
                 this.pairs.push({
                     x: canvas.width,
-                    y:  -150 * Math.random() + 1
+                    y:  -200 * Math.random() + 2
                 })
             }
             this.pairs.forEach(pair => {
@@ -250,6 +232,25 @@ function inicializePipe() {
     }
 
     return pipe
+}
+
+// Menu Information
+const menu = {
+    screenStartX: 134,
+    screenStartY: 0,
+    cropX: 174, // Using in sprite cropX and canvasSizeInX
+    cropY: 152, // Using in sprite cropY and canvasSizeInY
+    x: (canvas.width / 2) - 174 / 2, // 73
+    y: 50,
+    draw() {
+        ctx.drawImage(
+            sprites,
+            this.screenStartX, this.screenStartY,
+            this.cropX, this.cropY,
+            this.x, this.y,
+            this.cropX, this.cropY,
+        )
+    }
 }
 
 // Screen Properties
@@ -275,9 +276,9 @@ const Screens = {
             background.draw()
 
             globals.Player.draw()
-            globals.Floor.draw()
             globals.Pipe.draw()
-            // menu.draw()
+            globals.Floor.draw()
+            menu.draw()
         },
         update() {
             globals.Floor.update()
@@ -295,8 +296,8 @@ Screens.GAME = {
     draw() {
         background.draw()
 
-        globals.Floor.draw()
         globals.Pipe.draw()
+        globals.Floor.draw()
         globals.Player.draw()
     },
     click() {

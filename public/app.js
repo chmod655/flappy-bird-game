@@ -1,13 +1,12 @@
-import { Screens, changeToScreen, screenActive } from './modules/Scenes.js'
+import { Screens, changeToScreen, screenActive, globals } from './modules/Scenes.js'
 
-let frames = 0
+globals.frames = 0
 
-function main() 
-{
+function main() {
     screenActive.draw()
     screenActive.update()
 
-    frames += 1
+    globals.frames += 1
     requestAnimationFrame(main)
 }
 

@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flappy-Bird App</title>
-    
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Css -->
-    <link rel="stylesheet" href="./public/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./public/styles.css" />
+  </head>
+  <body>
     <div class="slogan">
-        <h1>Flappy-Bird</h1>
+      <h1>Flappy-Bird</h1>
     </div>
 
-    <div class="">
-        <canvas
-             
-            id="game-canvas" 
-            width="320" height="480"></canvas>
+    <div class="container glow">
+      <canvas id="game-canvas" width="320" height="480"></canvas>
     </div>
 
     <script type="module" src="./public/app.js"></script>
-</body>
+  </body>
 </html>

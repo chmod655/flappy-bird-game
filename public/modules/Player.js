@@ -1,4 +1,4 @@
-import { ctx, sprites } from './Canvas.js'
+import { ctx, sprites, hitEffect } from './Canvas.js'
 import { Collision } from './Collision.js'
 import { globals, Screens, changeToScreen } from './Scenes.js'
 
@@ -9,11 +9,11 @@ export function inicializePlayer() {
         spriteY: 0,
         cropX: 33, // Using in sprite cropX and canvasSizeInX
         cropY: 24, // Using in sprite cropY and canvasSizeInY
-        x: 10,
-        y: 50,
+        x: 10, //PosX
+        y: 90, // PosY
         gravity: 0,
         gravityForce: 0.25,
-        jumpForce: 6.5,
+        jumpForce: 2.5,
         movements: [
             { spriteX: 0, spriteY: 0 },
             { spriteX: 0, spriteY: 26 },
@@ -25,7 +25,7 @@ export function inicializePlayer() {
         updateCurrentFrames() {
 
             const frameInterval = 5
-            const frameTime = frames % frameInterval === 0
+            const frameTime = globals.frames % frameInterval === 0
             if (frameTime) {
                 const baseOfIncrement = 1
                 const increment = baseOfIncrement + this.currentFrame
@@ -56,7 +56,7 @@ export function inicializePlayer() {
             if (Collision(this, globals.Floor)) {
 
                 // Sound Effect
-                //effectDropHit.play()
+                hitEffect.play()
 
                 setTimeout(() => changeToScreen(Screens.start), 400)
                 return

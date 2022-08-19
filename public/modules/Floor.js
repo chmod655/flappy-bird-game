@@ -1,4 +1,4 @@
-import { canvas, ctx, sprites } from "./Canvas.js"
+import { canvas, ctx, sprites } from './Canvas.js'
 
 // Floor Information
 export function inicializeFloor() {

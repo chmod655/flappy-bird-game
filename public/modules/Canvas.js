@@ -6,3 +6,5 @@ export const ctx = canvas.getContext('2d')
 export const sprites = new Image()
 sprites.src = 'assets/sprites/sprites.png'
 
+export const hitEffect = new Audio()
+hitEffect.src = 'assets/soundEffects/hit.wav'
